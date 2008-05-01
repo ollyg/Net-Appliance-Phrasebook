@@ -4,7 +4,7 @@ use strict;
 use warnings FATAL => qw(all);
 
 use base qw(Class::Data::Inheritable);
-our $VERSION = 0.08;
+our $VERSION = 0.09;
 
 use Data::Phrasebook;
 use List::Util qw(first);
@@ -90,7 +90,7 @@ Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 =head1 VERSION
 
-This document refers to version 0.08 of Net::Appliance::Phrasebook.
+This document refers to version 0.09 of Net::Appliance::Phrasebook.
 
 =head1 SYNOPSIS
 
@@ -306,10 +306,11 @@ Cisco :
     begin_configure_cmd            : 'configure terminal'
     end_configure_cmd              : 'exit'
 
-# the CATOS dictionary is untested by the module author. feedback appreciated.
 CATOS :
+    prompt            : '/[\/a-zA-Z0-9._-]+ ?[#>] ?(?:\(enable[^)]*\))? ?$/'
+    privileged_prompt : '/> \(enable\) ?$/'
     err_string : '/% ?(?:Error|Type "[^?]+\?"|(?:Incomplete|Unknown) command|Invalid input)/'
-    paging_cmd : 'set term'
+    paging_cmd : 'set length'
 
 IOS :
     err_string : '/% ?(?:Error|Type "[^?]+\?"|(?:Incomplete|Unknown) command|Invalid input)/'
