@@ -1,0 +1,16 @@
+0.08  Fri Jan 26 14:58:00 GMT 2007
+    - Add more error strings
+0.07  Tue Nov 14 11:48:00 GMT 2006
+    - Added a load of new phrases that were previously hard-coded in
+      Net::Appliance::Session
+    - Added a 'Cisco' entry to the hierachy to carry these
+    - Added a 'CATOS' dictionary, but it's untested and pretty basic
+    - Hacked around a bug in Data::Phrasebook whereby a call to dicts() or
+      keywords() would fail unless a fetch() had already been done. Now you
+      can call keywords() immediately after instantiation
+    - Updated tests to cope with changes to built-in dicts
+    - Added more info to the POD about custom phrasebooks
+0.06  Wed Oct 04 12:45:00 BST 2006
+    - Tweaks to the POD
+0.05  Mon Oct 02 23:40:00 BST 2006
+    - Initial Release
