@@ -1,3 +1,5 @@
+0.1   Sat, 17 May 2008 20:28:32 +0100
+    - Added 'disconnect' phrase for RT.cpan#35937
 0.09  Thu May 01 15:20:00 BST 2008
     - Added Cisco CatOS commands contributed by Jörg Roth
 0.08  Fri Jan 26 14:58:00 GMT 2007

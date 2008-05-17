@@ -4,7 +4,7 @@ use strict;
 use warnings FATAL => qw(all);
 
 use base qw(Class::Data::Inheritable);
-our $VERSION = 0.09;
+our $VERSION = 0.1;
 
 use Data::Phrasebook;
 use List::Util qw(first);
@@ -90,7 +90,7 @@ Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 =head1 VERSION
 
-This document refers to version 0.09 of Net::Appliance::Phrasebook.
+This document refers to version 0.1 of Net::Appliance::Phrasebook.
 
 =head1 SYNOPSIS
 
@@ -305,6 +305,7 @@ Cisco :
     end_privileged_cmd             : 'disable'
     begin_configure_cmd            : 'configure terminal'
     end_configure_cmd              : 'exit'
+    disconnect                     : 'exit'
 
 CATOS :
     prompt            : '/[\/a-zA-Z0-9._-]+ ?[#>] ?(?:\(enable[^)]*\))? ?$/'
