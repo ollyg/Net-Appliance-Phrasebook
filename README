@@ -2,7 +2,7 @@ NAME
     Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 VERSION
-    This document refers to version 0.1 of Net::Appliance::Phrasebook.
+    This document refers to version 1.2 of Net::Appliance::Phrasebook.
 
 SYNOPSIS
      use Net::Appliance::Phrasebook;
