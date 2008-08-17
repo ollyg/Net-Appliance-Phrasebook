@@ -1,0 +1,24 @@
+Source: libnet-appliance-phrasebook-perl
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 5.0.0)
+Build-Depends-Indep: perl (>= 5.8.8-7etch3)
+Maintainer: Oliver Gorwits <oliver.gorwits@oucs.ox.ac.uk>
+Standards-Version: 3.7.2
+Homepage: http://search.cpan.org/dist/Net-Appliance-Phrasebook/
+
+Package: libnet-appliance-phrasebook-perl
+Architecture: all
+Depends: libyaml-perl,libdata-phrasebook-perl,libdata-phrasebook-loader-yaml-perl,libclass-data-inheritable-perl,liblist-moreutils-perl
+Description:  Network appliance command-line phrasebook
+ If you use Perl to manage interactive sessions with with the command-line
+ interfaces of networked appliances, then you might find this module useful.
+ .
+ Net::Appliance::Phrasebook is a simple module that contains a number of
+ dictionaries for the command-line interfaces of some popular network
+ appliances.
+ .
+ It also supports the use of custom phrasebooks, and of hiearchies of
+ dictionaries within phrasebooks.
+ .
+ This description was automagically extracted from the module by dh-make-perl.
