@@ -4,15 +4,15 @@ use strict;
 use warnings FATAL => qw(all);
 
 use base qw(Class::Data::Inheritable);
-our $VERSION = 1.2;
+our $VERSION = 1.3;
 
 use Data::Phrasebook;
 use List::Util qw(first);
 use List::MoreUtils qw(after_incl);
-use Symbol;
+use File::Temp;
 use Carp;
 
-__PACKAGE__->mk_classdata('__data_position');
+__PACKAGE__->mk_classdata('__phrasebook_file');
 __PACKAGE__->mk_classdata('__families' => [
     ['FWSM3', 'FWSM', 'PIXOS', 'Cisco'],
     ['Aironet', 'IOS', 'Cisco'],
@@ -46,26 +46,14 @@ sub new {
         croak "unknown platform: $args{platform}, could not find dictionary"
             if scalar @{$dict} == 0 or ! defined $dict->[0];
 
-        # the YAML "file" is actually our __DATA__ section.
-        $data = Symbol::qualify_to_ref('DATA');
-
-        # the DATA handle is global, so if we're called again it will need
-        # to be reset back to the position in the file of the __DATA__ tag
-        if (! defined __PACKAGE__->__data_position) {
-            __PACKAGE__->__data_position( tell $data );
-        }
-        else {
-            seek ($data, __PACKAGE__->__data_position, 0);
+        if (! defined __PACKAGE__->__phrasebook_file()) {
+            my $tmp = File::Temp->new( UNLINK => 1, EXLOCK => 0 );
+            while (<DATA>) { print $tmp $_ }
+            seek $tmp, 0, 0;
+            __PACKAGE__->__phrasebook_file( $tmp );
         }
 
-# if your Data::Dumper is old, you might need to uncomment this section
-#        {
-#            no warnings 'redefine';
-#    
-#            # kill this, because it can't cope with dumping a IO::Handle
-#            # (i.e. the Data::Phrasebook's 'file' arg)
-#            sub Data::Phrasebook::Debug::dumper { return ''; }
-#        }
+        $data = __PACKAGE__->__phrasebook_file()->filename;
     }
 
     my $self = Data::Phrasebook->new(
@@ -90,7 +78,7 @@ Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 =head1 VERSION
 
-This document refers to version 1.2 of Net::Appliance::Phrasebook.
+This document refers to version 1.3 of Net::Appliance::Phrasebook.
 
 =head1 SYNOPSIS
 
