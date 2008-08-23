@@ -4,12 +4,13 @@ use strict;
 use warnings FATAL => qw(all);
 
 use base qw(Class::Data::Inheritable);
-our $VERSION = 1.3;
+our $VERSION = 1.4;
 
 use Data::Phrasebook;
 use List::Util qw(first);
 use List::MoreUtils qw(after_incl);
-use File::Temp;
+use File::Basename;
+use Symbol;
 use Carp;
 
 __PACKAGE__->mk_classdata('__phrasebook_file');
@@ -46,14 +47,17 @@ sub new {
         croak "unknown platform: $args{platform}, could not find dictionary"
             if scalar @{$dict} == 0 or ! defined $dict->[0];
 
-        if (! defined __PACKAGE__->__phrasebook_file()) {
-            my $tmp = File::Temp->new( UNLINK => 1, EXLOCK => 0 );
-            while (<DATA>) { print $tmp $_ }
-            seek $tmp, 0, 0;
-            __PACKAGE__->__phrasebook_file( $tmp );
-        }
+        # find our phrasebook file on the filesystem
+        (my $pkg_path = __PACKAGE__) =~ s{::}{/}g;
+        my (undef, $directory, undef) = fileparse(
+            $INC{ $pkg_path .'.pm' }
+        );
+        croak "couldn't find the NAS Phrasebook home directory"
+            if !defined $directory;
 
-        $data = __PACKAGE__->__phrasebook_file()->filename;
+        $data = $directory . 'Phrasebook/nas-pb.yml';
+        croak "NAS Phrasebook file at $data does not seem to exist"
+            if ! -e $data;
     }
 
     my $self = Data::Phrasebook->new(
@@ -78,7 +82,7 @@ Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 =head1 VERSION
 
-This document refers to version 1.3 of Net::Appliance::Phrasebook.
+This document refers to version 1.4 of Net::Appliance::Phrasebook.
 
 =head1 SYNOPSIS
 
@@ -186,10 +190,16 @@ only work when used with a named external source data file.
 
 =head1 TIPS
 
-One way to quickly modify the built-in phrasebook, is to copy everthing below
-the C<__DATA__> line in the source code into a new file, then make changes,
-then use that file in the C<source> named parameter. Make sure you pass the
-C<platform> parameter a value too, in that case.
+The phrasebook that ships with this module is stored in a separate file,
+alongside the module itself on your computer. For example:
+
+ .../Net/Appliance/Phrasebook.pm
+ .../Net/Appliance/Phrasebook/nas-pb.yml
+
+So the file you want to copy to start your own phrasebook is C<nas-pb.yml>, as
+above. Having copied it, make some changes and use that file in the C<source>
+named parameter. Make sure you pass the C<platform> parameter a value too, in
+that case.
 
 Read the manual pages for L<Data::Phrasebook::Loader::YAML> and
 L<Data::Phrasebook> to understand what a I<default dictionary> is, and why you
@@ -211,6 +221,18 @@ You forgot to pass the required C<platform> argument to C<new>.
 
 You asked for a dictionary C<foobar> that does not exist in the internal
 phrasebook.
+
+=item C<couldn't find the NAS Phrasebook home directory>
+
+The module searched for the phrasebook it shipped with, but failed to find it.
+Please report this error (including the message itself) to the module
+maintainer.
+
+=item C<NAS Phrasebook file at Net/Appliance/Phrasebook/nas-pb.yml does not seem to exist>
+
+The module searched for the phrasebook it shipped with, but failed to find it.
+Please report this error (including the message itself) to the module
+maintainer.
 
 =back
 
@@ -276,53 +298,3 @@ this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
 St, Fifth Floor, Boston, MA 02110-1301 USA
 
 =cut
-
-__DATA__
-0000default : {}
-
-Cisco :
-    prompt            : '/[\/a-zA-Z0-9._-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
-    basic_prompt      : '/> ?$/'
-    privileged_prompt : '/# ?$/'
-    configure_prompt  : '/\(config[^)]*\)# ?$/'
-    user_prompt      : '/[Uu]sername/'
-    pass_prompt      : '/[Pp]assword: ?$/'
-    userpass_prompt  : '/(?:[Uu]sername|[Pp]assword): ?$/'
-    begin_privileged_cmd           : 'enable'
-    begin_privileged_with_user_cmd : 'login'
-    end_privileged_cmd             : 'disable'
-    begin_configure_cmd            : 'configure terminal'
-    end_configure_cmd              : 'exit'
-    disconnect                     : 'exit'
-    completion                     :  '?'
-
-CATOS :
-    prompt            : '/[\/a-zA-Z0-9._-]+ ?[#>] ?(?:\(enable[^)]*\))? ?$/'
-    privileged_prompt : '/> \(enable\) ?$/'
-    err_string : '/% ?(?:Error|Type "[^?]+\?"|(?:Incomplete|Unknown) command|Invalid input)/'
-    paging_cmd : 'set length'
-
-IOS :
-    err_string : '/% ?(?:Error|Type "[^?]+\?"|(?:Incomplete|Unknown) command|Invalid input)/'
-    paging_cmd : 'terminal length'
-
-Aironet : {}
-
-PIXOS :
-    err_string : '/(?:Type help|(?:Error|ERROR|Usage|usage):|not allowed)/'
-    paging_cmd : 'pager lines'
-
-FWSM : {}
-
-FWSM3 :
-    paging_cmd : 'terminal pager lines'
-
-HP :
-    prompt       : '/[\/a-zA-Z0-9._-:]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
-    basic_prompt : '/: ?$/'
-    user_prompt  : '/login as: ?$/'
-
-Nortel :
-    prompt       : '/[\/a-zA-Z0-9._-:]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
-    user_prompt  : '/Login: ?$/'
-

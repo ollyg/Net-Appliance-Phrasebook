@@ -2,7 +2,7 @@ NAME
     Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 VERSION
-    This document refers to version 1.3 of Net::Appliance::Phrasebook.
+    This document refers to version 1.4 of Net::Appliance::Phrasebook.
 
 SYNOPSIS
      use Net::Appliance::Phrasebook;
@@ -103,10 +103,16 @@ CUSTOM PHRASEBOOKS
     external source data file.
 
 TIPS
-    One way to quickly modify the built-in phrasebook, is to copy everthing
-    below the "__DATA__" line in the source code into a new file, then make
-    changes, then use that file in the "source" named parameter. Make sure
-    you pass the "platform" parameter a value too, in that case.
+    The phrasebook that ships with this module is stored in a separate file,
+    alongside the module itself on your computer. For example:
+
+     .../Net/Appliance/Phrasebook.pm
+     .../Net/Appliance/Phrasebook/nas-pb.yml
+
+    So the file you want to copy to start your own phrasebook is
+    "nas-pb.yml", as above. Having copied it, make some changes and use that
+    file in the "source" named parameter. Make sure you pass the "platform"
+    parameter a value too, in that case.
 
     Read the manual pages for Data::Phrasebook::Loader::YAML and
     Data::Phrasebook to understand what a *default dictionary* is, and why
@@ -123,6 +129,17 @@ DIAGNOSTICS
     "unknown platform: foobar, could not find phrasebook"
         You asked for a dictionary "foobar" that does not exist in the
         internal phrasebook.
+
+    "couldn't find the NAS Phrasebook home directory"
+        The module searched for the phrasebook it shipped with, but failed
+        to find it. Please report this error (including the message itself)
+        to the module maintainer.
+
+    "NAS Phrasebook file at Net/Appliance/Phrasebook/nas-pb.yml does not
+    seem to exist"
+        The module searched for the phrasebook it shipped with, but failed
+        to find it. Please report this error (including the message itself)
+        to the module maintainer.
 
 DEPENDENCIES
     Other than the the contents of the standard Perl distribution, you will
