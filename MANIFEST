@@ -5,6 +5,7 @@ README
 Makefile.PL
 META.yml
 lib/Net/Appliance/Phrasebook.pm
+lib/Net/Appliance/Phrasebook/nas-pb.yml
 t/00load.t
 t/10builtin.t
 t/20external.yaml
