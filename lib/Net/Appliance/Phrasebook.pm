@@ -4,7 +4,7 @@ use strict;
 use warnings FATAL => qw(all);
 
 use base qw(Class::Data::Inheritable);
-our $VERSION = 1.4;
+our $VERSION = 1.5;
 
 use Data::Phrasebook;
 use List::Util qw(first);
@@ -18,6 +18,7 @@ __PACKAGE__->mk_classdata('__families' => [
     ['FWSM3', 'FWSM', 'PIXOS', 'Cisco'],
     ['Aironet', 'IOS', 'Cisco'],
     ['CATOS', 'Cisco'],
+    ['JUNOS', 'Cisco'],
     ['HP', 'Cisco'],
     ['Nortel', 'Cisco'],
 ]);
@@ -82,7 +83,7 @@ Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 =head1 VERSION
 
-This document refers to version 1.4 of Net::Appliance::Phrasebook.
+This document refers to version 1.5 of Net::Appliance::Phrasebook.
 
 =head1 SYNOPSIS
 

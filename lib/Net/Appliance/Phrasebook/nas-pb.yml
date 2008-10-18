@@ -37,6 +37,12 @@ FWSM : {}
 FWSM3 :
     paging_cmd : 'terminal pager lines'
 
+JUNOS :
+    prompt               : '/[\/a-zA-Z0-9._@-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
+    configure_prompt     : '/# ?$/'
+    begin_configure_cmd  : 'configure'
+    err_string           : '/(?:syntax error|unknown command|ambiguous)/'
+
 HP :
     prompt       : '/[\/a-zA-Z0-9._:-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
     basic_prompt : '/: ?$/'

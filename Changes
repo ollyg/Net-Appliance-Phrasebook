@@ -1,6 +1,7 @@
 libnet-appliance-phrasebook-perl (1.5) UNRELEASED; urgency=low
 
   * Character class error for HP and Nortel, spotted by Marc Remijn 
+  * Add beginnings of a JUNOS phrasebook, courtesy Eddie Parra
 
  -- Oliver Gorwits <oliver.gorwits@oucs.ox.ac.uk>  Sun, 19 Oct 2008 00:28:12 +0100
 
