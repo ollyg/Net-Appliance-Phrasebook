@@ -1,3 +1,9 @@
+libnet-appliance-phrasebook-perl (1.5) UNRELEASED; urgency=low
+
+  * Character class error for HP and Nortel, spotted by Marc Remijn 
+
+ -- Oliver Gorwits <oliver.gorwits@oucs.ox.ac.uk>  Sun, 19 Oct 2008 00:28:12 +0100
+
 libnet-appliance-phrasebook-perl (1.4) unstable; urgency=low
 
   * Switch to external YAML phrasebook file instead of a File::Temp and <DATA>

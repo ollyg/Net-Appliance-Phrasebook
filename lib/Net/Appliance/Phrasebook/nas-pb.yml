@@ -38,11 +38,11 @@ FWSM3 :
     paging_cmd : 'terminal pager lines'
 
 HP :
-    prompt       : '/[\/a-zA-Z0-9._-:]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
+    prompt       : '/[\/a-zA-Z0-9._:-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
     basic_prompt : '/: ?$/'
     user_prompt  : '/login as: ?$/'
 
 Nortel :
-    prompt       : '/[\/a-zA-Z0-9._-:]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
+    prompt       : '/[\/a-zA-Z0-9._:-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
     user_prompt  : '/Login: ?$/'
 
