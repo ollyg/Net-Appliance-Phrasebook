@@ -39,6 +39,7 @@ FWSM3 :
 
 JUNOS :
     prompt               : '/[\/a-zA-Z0-9._@-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
+    privileged_prompt    : '/> ?$/'
     configure_prompt     : '/# ?$/'
     begin_configure_cmd  : 'configure'
     err_string           : '/(?:syntax error|unknown command|ambiguous)/'

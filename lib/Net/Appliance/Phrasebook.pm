@@ -4,7 +4,7 @@ use strict;
 use warnings FATAL => qw(all);
 
 use base qw(Class::Data::Inheritable);
-our $VERSION = 1.5;
+our $VERSION = 1.6;
 
 use Data::Phrasebook;
 use List::Util qw(first);
@@ -83,7 +83,7 @@ Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 =head1 VERSION
 
-This document refers to version 1.5 of Net::Appliance::Phrasebook.
+This document refers to version 1.6 of Net::Appliance::Phrasebook.
 
 =head1 SYNOPSIS
 
