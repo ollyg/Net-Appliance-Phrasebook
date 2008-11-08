@@ -1,22 +1,19 @@
-use strict;
-use warnings;
-use ExtUtils::MakeMaker;
+use inc::Module::Install 0.67;
+perl_version '5.008001';
+  
+name        'Net-Appliance-Phrasebook';
+all_from    'lib/Net/Appliance/Phrasebook.pm';
 
-WriteMakefile(
-    NAME                => 'Net::Appliance::Phrasebook',
-    AUTHOR              => 'Oliver Gorwits <oliver.gorwits@oucs.ox.ac.uk>',
-    VERSION_FROM        => 'lib/Net/Appliance/Phrasebook.pm',
-    ABSTRACT_FROM       => 'lib/Net/Appliance/Phrasebook.pm',
-    PL_FILES            => {},
-    PREREQ_PM => {
-        'Data::Phrasebook' => 0.26,
-        'Data::Phrasebook::Loader::YAML' => 0.06,
-        'YAML' => 0.62,
-        'List::MoreUtils' => 0,
-        'Class::Data::Inheritable' => 0,
-        'Data::Dumper' => 2.121,
-    },
-    LICENSE             => 'GPLv2',
-    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'Net-Appliance-Phrasebook-*' },
-);
+requires    'Data::Phrasebook' => 0;
+requires    'Data::Phrasebook::Loader::YAML' => 0;
+requires    'YAML' => 0;
+requires    'List::MoreUtils' => 0;
+requires    'Class::Data::Inheritable' => 0;
+requires    'Data::Dumper' => 2.121;
+
+test_requires  'Test::More' => 0;
+test_requires  'Test::Pod' => 0;
+test_requires  'Test::Pod::Coverage' => 0;
+
+WriteAll;
+

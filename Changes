@@ -1,3 +1,10 @@
+libnet-appliance-phrasebook-perl (1.7) UNRELEASED; urgency=low
+
+  * Move to Module::Install
+  * Update license to be same terms as Perl
+
+ -- Oliver Gorwits <oliver.gorwits@oucs.ox.ac.uk>  Sat,  8 Nov 2008 16:42:09 +0000
+
 libnet-appliance-phrasebook-perl (1.6) UNRELEASED; urgency=low
 
   * Fix for probably bug in matching configure/privilege mode 
