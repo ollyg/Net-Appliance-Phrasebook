@@ -5,7 +5,7 @@ use warnings FATAL => qw(all);
 
 use base qw(Class::Data::Inheritable);
 
-our $VERSION = '1.7';
+our $VERSION = '1.8';
 $VERSION = eval $VERSION; # numify for warning-free dev releases
 
 use Data::Phrasebook;
@@ -19,6 +19,7 @@ __PACKAGE__->mk_classdata('__phrasebook_file');
 __PACKAGE__->mk_classdata('__families' => [
     ['FWSM3', 'FWSM', 'PIXOS', 'Cisco'],
     ['Aironet', 'IOS', 'Cisco'],
+    ['PIXOS7', 'Cisco'],
     ['CATOS', 'Cisco'],
     ['JUNOS', 'Cisco'],
     ['HP', 'Cisco'],
@@ -85,7 +86,7 @@ Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 =head1 VERSION
 
-This document refers to version 1.7 of Net::Appliance::Phrasebook.
+This document refers to version 1.8 of Net::Appliance::Phrasebook.
 
 =head1 SYNOPSIS
 

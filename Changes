@@ -1,3 +1,10 @@
+libnet-appliance-phrasebook-perl (1.8) UNRELEASED; urgency=low
+
+  * Various JUNOS fixes (submitted via forum by quandarypeak)
+  * Added PIXOS7 device which has a different pager command (RT#40784)
+
+ -- Oliver Gorwits <oliver.gorwits@oucs.ox.ac.uk>  Tue, 30 Dec 2008 22:38:44 +0000
+
 libnet-appliance-phrasebook-perl (1.7) UNRELEASED; urgency=low
 
   * Move to Module::Install

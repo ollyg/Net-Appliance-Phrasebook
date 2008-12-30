@@ -5,9 +5,9 @@ Cisco :
     basic_prompt      : '/> ?$/'
     privileged_prompt : '/# ?$/'
     configure_prompt  : '/\(config[^)]*\)# ?$/'
-    user_prompt      : '/[Uu]sername/'
-    pass_prompt      : '/[Pp]assword: ?$/'
-    userpass_prompt  : '/(?:[Uu]sername|[Pp]assword): ?$/'
+    user_prompt       : '/[Uu]sername/'
+    pass_prompt       : '/[Pp]assword: ?$/'
+    userpass_prompt   : '/(?:[Uu]sername|[Pp]assword): ?$/'
     begin_privileged_cmd           : 'enable'
     begin_privileged_with_user_cmd : 'login'
     end_privileged_cmd             : 'disable'
@@ -19,8 +19,8 @@ Cisco :
 CATOS :
     prompt            : '/[\/a-zA-Z0-9._-]+ ?[#>] ?(?:\(enable[^)]*\))? ?$/'
     privileged_prompt : '/> \(enable\) ?$/'
-    err_string : '/% ?(?:Error|Type "[^?]+\?"|(?:Incomplete|Unknown) command|Invalid input)/'
-    paging_cmd : 'set length'
+    err_string        : '/% ?(?:Error|Type "[^?]+\?"|(?:Incomplete|Unknown) command|Invalid input)/'
+    paging_cmd        : 'set length'
 
 IOS :
     err_string : '/% ?(?:Error|Type "[^?]+\?"|(?:Incomplete|Unknown) command|Invalid input)/'
@@ -32,17 +32,23 @@ PIXOS :
     err_string : '/(?:Type help|(?:Error|ERROR|Usage|usage):|not allowed)/'
     paging_cmd : 'pager lines'
 
+PIXOS7:
+    paging_cmd : 'terminal pager lines'
+
 FWSM : {}
 
 FWSM3 :
     paging_cmd : 'terminal pager lines'
 
 JUNOS :
-    prompt               : '/[\/a-zA-Z0-9._@-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
+    prompt               : '/[\/a-zA-Z0-9._\@-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'
     privileged_prompt    : '/> ?$/'
     configure_prompt     : '/# ?$/'
+    user_prompt          : '/(?:[Ll]ogin|[Uu]sername)/'
+    userpass_prompt      : '/(?:[Ll]ogin|[Uu]sername|[Pp]assword): ?$/'
     begin_configure_cmd  : 'configure'
     err_string           : '/(?:syntax error|unknown command|ambiguous)/'
+    paging_cmd           : 'set cli screen-length'
 
 HP :
     prompt       : '/[\/a-zA-Z0-9._:-]+ ?(?:\(config[^)]*\))? ?[#>] ?$/'

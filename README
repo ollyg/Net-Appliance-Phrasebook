@@ -2,17 +2,17 @@ NAME
     Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 VERSION
-    This document refers to version 1.7 of Net::Appliance::Phrasebook.
+    This document refers to version 1.8 of Net::Appliance::Phrasebook.
 
 SYNOPSIS
      use Net::Appliance::Phrasebook;
- 
-     my $pb = Net::Appliance::Phrasebook->new(
+     
+ my $pb = Net::Appliance::Phrasebook->new(
          platform => 'IOS',
          source   => '/a/file/somewhere.yml', # optional
      );
- 
-     print $pb->fetch('a_command_alias'), "\n";
+     
+ print $pb->fetch('a_command_alias'), "\n";
 
 DESCRIPTION
     If you use Perl to manage interactive sessions with with the
