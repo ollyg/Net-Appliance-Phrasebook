@@ -2,7 +2,7 @@ NAME
     Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 VERSION
-    version 2.103640
+    version 2.103641
 
 SYNOPSIS
      use Net::Appliance::Phrasebook;
@@ -65,18 +65,17 @@ SUPPORTED SYSTEMS
 
      ['FWSM3', 'FWSM', 'PIXOS', 'Cisco']
      ['Aironet', 'IOS', 'Cisco']
+     ['PIXOS7', 'Cisco']
      ['CATOS', 'Cisco']
+     ['JUNOS', 'Cisco']
+     ['HP', 'Cisco']
+     ['Nortel', 'Cisco']
+     ['ExtremeXOS', 'Cisco']
 
     For example the value "FWSM" (for Cisco Firewall Services Modules with
     software versions up to 2.x) will fetch commands from the "FWSM"
     dictionary and then the "PIXOS" dictionary, then the "Cisco" dictionary,
     before failing.
-
-    Rather than repeat myself here, if you want to see what dictionaries are
-    built into the module, and what phrases they each contain, then look at
-    this module's source code. If you are reading this on-line, there may be
-    a "Source" hyperlink at the top of the page; click it then scroll to the
-    bottom of the next page and you will see the built-in dictionaries.
 
 CUSTOM PHRASEBOOKS
     Phrasebooks must be written in YAML, with each dictionary being named

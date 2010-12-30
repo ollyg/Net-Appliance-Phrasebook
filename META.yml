@@ -26,4 +26,4 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Net-Appliance-Phrasebook
   homepage: https://github.com/ollyg/Net-Appliance-Phrasebook/wiki
   repository: git://github.com/ollyg/Net-Appliance-Phrasebook.git
-version: 2.103640
+version: 2.103641

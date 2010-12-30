@@ -1,6 +1,6 @@
 package Net::Appliance::Phrasebook;
 BEGIN {
-  $Net::Appliance::Phrasebook::VERSION = '2.103640';
+  $Net::Appliance::Phrasebook::VERSION = '2.103641';
 }
 
 use strict;
@@ -24,6 +24,7 @@ __PACKAGE__->mk_classdata('__families' => [
     ['JUNOS', 'Cisco'],
     ['HP', 'Cisco'],
     ['Nortel', 'Cisco'],
+    ['ExtremeXOS', 'Cisco'],
 ]);
 
 sub new {
@@ -92,7 +93,7 @@ Net::Appliance::Phrasebook - Network appliance command-line phrasebook
 
 =head1 VERSION
 
-version 2.103640
+version 2.103641
 
 =head1 SYNOPSIS
 
@@ -161,18 +162,17 @@ and its "ancestors", in order, for lookups:
 
  ['FWSM3', 'FWSM', 'PIXOS', 'Cisco']
  ['Aironet', 'IOS', 'Cisco']
+ ['PIXOS7', 'Cisco']
  ['CATOS', 'Cisco']
+ ['JUNOS', 'Cisco']
+ ['HP', 'Cisco']
+ ['Nortel', 'Cisco']
+ ['ExtremeXOS', 'Cisco']
 
 For example the value C<FWSM> (for Cisco Firewall Services Modules with
 software versions up to 2.x) will fetch commands from the C<FWSM> dictionary
 and then the C<PIXOS> dictionary, then the C<Cisco> dictionary, before
 failing.
-
-Rather than repeat myself here, if you want to see what dictionaries are built
-into the module, and what phrases they each contain, then look at this
-module's source code. If you are reading this on-line, there may be a
-C<Source> hyperlink at the top of the page; click it then scroll to the bottom
-of the next page and you will see the built-in dictionaries.
 
 =head1 CUSTOM PHRASEBOOKS
 
