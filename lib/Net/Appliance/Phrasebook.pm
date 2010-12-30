@@ -5,9 +5,6 @@ use warnings FATAL => qw(all);
 
 use base qw(Class::Data::Inheritable);
 
-our $VERSION = '1.8';
-$VERSION = eval $VERSION; # numify for warning-free dev releases
-
 use Data::Phrasebook;
 use List::Util qw(first);
 use List::MoreUtils qw(after_incl);
@@ -80,13 +77,7 @@ sub new {
 
 1;
 
-=head1 NAME
-
-Net::Appliance::Phrasebook - Network appliance command-line phrasebook
-
-=head1 VERSION
-
-This document refers to version 1.8 of Net::Appliance::Phrasebook.
+# ABSTRACT: Network appliance command-line phrasebook
 
 =head1 SYNOPSIS
 
@@ -280,16 +271,5 @@ able to pinpoint problems or even supply a patch.
 
 L<Data::Phrasebook>, L<Net::Appliance::Session>,
 L<Data::Phrasebook::Loader::YAML>
-
-=head1 AUTHOR
-
-Oliver Gorwits C<< <oliver.gorwits@oucs.ox.ac.uk> >>
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright (c) The University of Oxford 2008.
-
-This library is free software; you can redistribute it and/or modify it under
-the same terms as Perl itself.
 
 =cut

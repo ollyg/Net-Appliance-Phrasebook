@@ -1,3 +1,7 @@
+{{$NEXT}}
+
+  * Port to Dist::Zilla
+
 libnet-appliance-phrasebook-perl (1.8) UNRELEASED; urgency=low
 
   * Various JUNOS fixes (submitted via forum by quandarypeak)
