@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+  * Fix error string for PIXOS7
+  * Add an ASA device class
+
 2.103641  2010-12-30 19:57:38 Europe/London
 
   * Add ExtremeXOS phrases courtesy those nice PacketFence people.

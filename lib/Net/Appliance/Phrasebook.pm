@@ -15,8 +15,8 @@ use Carp;
 __PACKAGE__->mk_classdata('__phrasebook_file');
 __PACKAGE__->mk_classdata('__families' => [
     ['FWSM3', 'FWSM', 'PIXOS', 'Cisco'],
+    ['ASA', 'PIXOS7', 'PIXOS', 'Cisco'],
     ['Aironet', 'IOS', 'Cisco'],
-    ['PIXOS7', 'Cisco'],
     ['CATOS', 'Cisco'],
     ['JUNOS', 'Cisco'],
     ['HP', 'Cisco'],
@@ -146,8 +146,8 @@ is a hierarchy of platforms, so any entry in a given "lineage" will use itself
 and its "ancestors", in order, for lookups:
 
  ['FWSM3', 'FWSM', 'PIXOS', 'Cisco']
+ ['ASA', 'PIXOS7', 'PIXOS', 'Cisco']
  ['Aironet', 'IOS', 'Cisco']
- ['PIXOS7', 'Cisco']
  ['CATOS', 'Cisco']
  ['JUNOS', 'Cisco']
  ['HP', 'Cisco']
