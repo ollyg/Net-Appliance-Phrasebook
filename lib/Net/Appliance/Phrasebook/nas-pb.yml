@@ -35,6 +35,8 @@ PIXOS :
 PIXOS7:
     paging_cmd : 'terminal pager lines'
 
+ASA  : {}
+
 FWSM : {}
 
 FWSM3 :
